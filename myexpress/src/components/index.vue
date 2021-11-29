@@ -34,6 +34,13 @@
         prop="address"
         label="地址">
       </el-table-column>
+
+      <el-table-column
+        label="操作">
+            <template slot-scope="scope">
+                <el-button type="primary" @click="del(scope.row)">删除</el-button>
+            </template>
+      </el-table-column>
     </el-table>
 
 
@@ -69,7 +76,23 @@ export default {
     this.search();
   },
   methods:{
-      search(){
+    del(row){
+         this.$axios({
+            method:'post',
+            url:'/api/user/del',
+            data:row
+        }).then((res) =>{          
+           this.$message({
+                message: '删除成功！',
+                type: 'success',
+                duration: 2000
+            });
+            this.search();
+        }).catch((error) =>{
+            console.log(error)       //请求失败返回的数据
+        })
+    },
+    search(){
         this.$axios({
             method:'post',
             url:'/api/user/query',

@@ -2,7 +2,8 @@ var sqlMap = {
     user:{
         add: 'insert into user(name,age) values(?,?)',
         query:'select * from user where name =? || age =? ',
-        queryAll:'select * from user'
+        queryAll:'select * from user',
+        del:'DELETE FROM user WHERE name = ? '
     }
 }
 

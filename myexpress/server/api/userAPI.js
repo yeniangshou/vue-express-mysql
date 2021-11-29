@@ -59,5 +59,22 @@ const  jsonWrite = function(res, sqlResult) {
     })
   })
 
+  router.post('/del', (req,res)=>{
+    
+    let params = req.body;
+    let sql = sqlMap.user.del;
+    
+    conn.query(sql, [params.name],(err, sqlResult)=>{
+        if(err){
+            console.log('删除失败'+err);
+        }
+
+        if(res){
+            console.log('sqlResult',sqlResult);
+            jsonWrite(res, sqlResult)
+        }
+    })
+  })
+
 
   module.exports =  router;
