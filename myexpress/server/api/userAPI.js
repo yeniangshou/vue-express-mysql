@@ -37,5 +37,27 @@ const  jsonWrite = function(res, sqlResult) {
     })
   })
 
+  router.post('/query', (req,res)=>{
+    
+    let params = req.body;
+    let sql;
+    if(!params.name&& !params.age){
+        sql = sqlMap.user.queryAll;
+    } else {
+        sql = sqlMap.user.query;
+    }
+    
+    conn.query(sql, [params.name, params.age],(err, sqlResult)=>{
+        if(err){
+            console.log('查询失败'+err);
+        }
+
+        if(res){
+            console.log('sqlResult',sqlResult);
+            jsonWrite(res, sqlResult)
+        }
+    })
+  })
+
 
   module.exports =  router;

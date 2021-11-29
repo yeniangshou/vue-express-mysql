@@ -25,6 +25,7 @@ npm test
 ```
 # 说明
 server 用来放置后端的接口和链接数据库相关的代码;
+前端使用代理的方式调用后端的接口;
 
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
