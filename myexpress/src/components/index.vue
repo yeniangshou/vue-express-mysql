@@ -77,7 +77,7 @@ export default {
   },
   methods:{
     del(row){
-         this.$axios({
+        this.$axios({
             method:'post',
             url:'/api/user/del',
             data:row
