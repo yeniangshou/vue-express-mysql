@@ -1,14 +1,15 @@
 <template>
   <div class="wrap">
-   <el-form :form="form" style="width: 800px" inline>
-       <el-form-item label="名字：">
-           <el-input v-model="form.name" style="width:200px;"></el-input>
+   <el-form :model="form"  ref="ruleForm" style="width: 800px" inline>
+       <el-form-item label="名字：" prop="name">
+           <el-input v-model="form.name" style="width:200px;" clearable></el-input>
        </el-form-item>
-       <el-form-item label="年龄："  class="ml30">
-           <el-input v-model="form.age" style="width:200px;"></el-input>
+       <el-form-item label="年龄："  class="ml30" prop="age"> 
+           <el-input v-model="form.age" style="width:200px;" clearable></el-input>
        </el-form-item>
         <el-form-item class="ml30">
-            <el-button type="primary" @click="search">搜索</el-button>
+            <el-button type="primary"  class="ml30" @click="search">搜索</el-button>
+            <el-button type="primary" @click="reset">重置</el-button>
         </el-form-item>
    </el-form>
 
@@ -85,7 +86,11 @@ export default {
     this.search();
   },
   methods:{
+    reset(){
+       this.$refs['ruleForm'].resetFields()
+    },
     del(row){
+        console.log('row:',row)
         this.$axios({
             method:'post',
             url:'/api/user/del',
