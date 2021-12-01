@@ -4,21 +4,23 @@
        <el-form-item label="名字：">
            <el-input v-model="form.name" style="width:200px;"></el-input>
        </el-form-item>
-       <el-form-item label="年龄：">
+       <el-form-item label="年龄："  class="ml30">
            <el-input v-model="form.age" style="width:200px;"></el-input>
        </el-form-item>
-        <el-form-item>
+        <el-form-item class="ml30">
             <el-button type="primary" @click="search">搜索</el-button>
         </el-form-item>
    </el-form>
 
-    <div>
+    <div class="btn-warp">
         <el-button type="primary" @click="add">新增</el-button>
     </div>
 
 
     <el-table
       :data="tableData"
+      stripe
+      border
       style="width: 80%">
       <el-table-column
         prop="name"
@@ -31,8 +33,16 @@
        >
       </el-table-column>
       <el-table-column
+        prop="phone"
+        label="电话">
+      </el-table-column>
+      <el-table-column
         prop="address"
         label="地址">
+      </el-table-column>
+      <el-table-column
+        prop="remark"
+        label="备注">
       </el-table-column>
 
       <el-table-column
@@ -43,8 +53,7 @@
       </el-table-column>
     </el-table>
 
-
-     <el-pagination
+     <!-- <el-pagination
         style="display: inline-block; margin-top:30px;"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -53,7 +62,7 @@
         :page-size="form.pageSize"
         layout="total, sizes, prev, pager, next, jumper"
         :total="totalSize"
-      ></el-pagination>
+      ></el-pagination> -->
   </div>
 </template>
 
@@ -97,7 +106,7 @@ export default {
             method:'post',
             url:'/api/user/query',
             data:this.form
-        }).then((res) =>{          
+        }).then((res) =>{  
             this.tableData = res.data
         }).catch((error) =>{
             console.log(error)       //请求失败返回的数据
@@ -127,18 +136,24 @@ export default {
     padding: 20px;;
 }
 
-h1, h2 {
-  font-weight: normal;
+.ml30 {
+    margin-left:30px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.el-table--border td{
+   border-right: none;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+ 
+.el-table::before{
+  height:0;
 }
-a {
-  color: #42b983;
+ 
+.base .el-table__body{
+  border-top: 1px solid #CCCCCC;
+}
+
+.btn-warp {
+    margin-bottom: 20px;
+    display: flex
 }
 </style>
