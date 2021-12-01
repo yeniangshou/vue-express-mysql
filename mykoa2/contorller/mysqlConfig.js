@@ -37,10 +37,28 @@ let allServices = {
         })
     },
     findUserData(params){
+        let sql = '';
+        let ary = [];
         if(params.name.trim() == '' && params.age.trim() ==''){
-
+            sql = 'select * from user'
+        } else {
+            sql= 'select * from user where name =? || age =? ';
+            ary = [params.name.trim(), params.age.trim()]
         }
+        return allServices.query(sql, ary)
+    },
+    addUserData(params){
+        let sql = 'insert into user(name,age) values(?,?)';
+        let ary = [params.name, params.age];
+        console.log('ary',ary)
+        return allServices.query(sql,ary);
+    },
+    delUserData(params){
+        let sql = 'DELETE FROM user WHERE name = ?';
+
+        return allServices.query(sql, [params.name]);
     }
 
-
 }
+
+module.exports =allServices

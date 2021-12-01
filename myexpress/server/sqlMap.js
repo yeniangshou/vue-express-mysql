@@ -1,3 +1,4 @@
+// sql语句的编写
 var sqlMap = {
     user:{
         add: 'insert into user(name,age) values(?,?)',

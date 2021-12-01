@@ -1,3 +1,4 @@
+// sql数据库的配置
 module.exports = {
     mysql: {
         host:'localhost',

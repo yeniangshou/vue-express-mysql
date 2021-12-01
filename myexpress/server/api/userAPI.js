@@ -17,6 +17,7 @@ const  jsonWrite = function(res, sqlResult) {
         msg: '操作失败'
       });
     } else {
+      // 返回数据
       res.json(sqlResult);
     }
   };
