@@ -64,7 +64,7 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
 import about from './About.vue'
 
 
-@Component({
+@Component({ // 这里将组件放在这里
   components: {
       about
   },
