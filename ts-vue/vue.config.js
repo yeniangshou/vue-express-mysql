@@ -1,4 +1,5 @@
 module.exports = {
+    lintOnSave: false, // 关闭保存进行eslint设置
     // 配置 webpack-dev-server 行为。
   devServer: {
     open: process.platform === 'darwin',

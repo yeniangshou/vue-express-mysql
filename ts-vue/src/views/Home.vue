@@ -14,9 +14,12 @@
    </el-form>
 
     <div class="btn-warp">
-        <el-button type="primary" @click="add">新增</el-button>
+        <div>
+            <el-button type="primary" @click="add">新增</el-button>
+        </div>
+       
+        <about style="margin-left:20px;" :msg="msg" @tip="tip"></about>
     </div>
-
 
     <el-table
       :data="tableData"
@@ -57,31 +60,48 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import about from './About.vue'
+
 
 @Component({
   components: {
+      about
   },
 })
 export default class Home extends Vue {
+    // 这里相当于vue里面data数据
     form = {
         name:'',
         age:''
     }
 
+    msg:string = '已经开始测试。。。'
+
     tableData:[] = [];
 
     ref: any = this.$refs['formName'];
 
-    created(){
+    created(){ // 这里相当于created函数
         this.search();
-    } 
+    }
 
-    reset():void{
+    // 这里是computed
+    get formmsg(){
+        return this.form.name + this.form.age
+    }
+    
+    @Watch('formmsg') // 监听的值
+    consoleFormsg(newVal:any, oldVal:any){ // 这里相当于放在method的方法
+        console.log('formmsg',newVal, oldVal)
+    }
+
+
+    reset():void{ // 这里相当于method的方法
       this.ref.resetFields()
     }
 
-     del(row: any){
+     del(row: any){ // 这里相当于method的方法
         this.axios({
             method:'post',
             url:'/api/user/del',
@@ -98,7 +118,7 @@ export default class Home extends Vue {
         })
     }
 
-    search(){
+    search(){ // 这里相当于method的方法
         this.axios({
             method:'post',
             url:'/api/user/query',
@@ -110,8 +130,17 @@ export default class Home extends Vue {
         })
     }
 
-    add():void{
+    add():void{ // 这里相当于method的方法
         this.$router.push({path:'/add'})
+    }
+
+    // 这里是接收emit方法的值
+    tip(msg:string):void {
+        this.$message({
+            message: msg,
+            type: 'success',
+            duration: 2000
+        });
     }
 }
 </script>
