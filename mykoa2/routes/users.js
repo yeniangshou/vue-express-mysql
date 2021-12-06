@@ -13,8 +13,17 @@ router.get('/bar', function (ctx, next) {
 })
 
 router.post('/query', async(ctx, next)=>{
+    
     let params = ctx.request.body;
+    console.log('params', ctx.request.body)
     await userService.findUserData(params).then((data)=>{
+        ctx.body = data
+    })
+})
+
+router.post('/userlogion', async(ctx, next)=>{
+    let params = ctx.request.body;
+    await userService.login(params).then((data)=>{
         ctx.body = data
     })
 })

@@ -39,6 +39,7 @@ let allServices = {
     findUserData(params){
         let sql = '';
         let ary = [];
+        console.log('params', params)
         if(params.name.trim() == '' && params.age.trim() ==''){
             sql = 'select * from user'
         } else {
@@ -57,6 +58,12 @@ let allServices = {
         let sql = 'DELETE FROM user WHERE name = ?';
 
         return allServices.query(sql, [params.name]);
+    },
+    login(params){
+        let sql = 'select * from userlogin where userName =? AND password =? ';
+        let ary = [params.userName, params.password];
+        console.log('ary',ary)
+        return allServices.query(sql,ary);
     }
 
 }
