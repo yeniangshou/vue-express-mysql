@@ -24,5 +24,8 @@ my-nuxt-demo 项目
 前端后端都放在nuxt项目里面。
 nuxt+vue+axios+express+mysql+node.
 
-
-
+react-admin-demos项目 入门react
+react、ts、node、react-router-dom、antd-desgin
+功能：登录页面； 列表页面、查询和重置、新增、编辑、删除
+yarn start 启动
+以mykoa2的后端作为服务端，mysql作为数据库，建立userlogin表，账号和密码。
