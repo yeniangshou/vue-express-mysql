@@ -60,7 +60,7 @@ let allServices = {
         return allServices.query(sql, [params.name]);
     },
     login(params){
-        let sql = 'select * from userlogin where userName =? AND password =? ';
+        let sql = 'select * from userlogin where name =? AND password =? ';
         let ary = [params.userName, params.password];
         console.log('ary',ary)
         return allServices.query(sql,ary);
