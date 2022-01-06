@@ -2,8 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import LikeButton from './components/likeButton'
 import ImgShow from './components/imgshow';
+import useMousePoint from './components/useMousePoint';
 
 function App() {
+    const position = useMousePoint();
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +21,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>x:{position.x},y:{position.y}</p>
         <ImgShow></ImgShow>
         <LikeButton></LikeButton>
       </header>
