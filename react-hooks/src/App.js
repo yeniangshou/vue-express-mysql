@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import LikeButton from './components/likeButton'
+import ImgShow from './components/imgshow';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <ImgShow></ImgShow>
         <LikeButton></LikeButton>
       </header>
     </div>

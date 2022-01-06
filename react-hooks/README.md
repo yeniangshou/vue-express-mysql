@@ -70,5 +70,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ## react hook useState 改变之前class的setState的方式，这个变成函数类的.
-likeButton.js   s
+likeButton.js   
 
+## react hook useEffect 副作用，相当于componentDidMount  
+imgshow.js 组件渲染就会重新调用，也可以进行限制
+
+## 查看网上react hook 讲解
+https://www.jianshu.com/p/d600f749bb19
