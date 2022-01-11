@@ -1,3 +1,12 @@
+# 说明
+ "dev": " "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \" cross-env  BROWSER=none npm start \" " \"wait-on http://localhost:3000 && electron .\" \" cross-env  BROWSER=none npm start \" "
+
+（1）\ \ 进行转义；
+（2） concurrently  这里将两个命令npm run start 和  electron . 进行同步启动，打开
+（3） wait-on && 代表 http://localhost:3000 启动这个之后，再启动electron .
+（4） cross-env 设置环境值，BROWSER=none 让react的浏览器不打开窗口;
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
