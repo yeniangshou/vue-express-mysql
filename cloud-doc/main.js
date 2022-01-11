@@ -1,4 +1,5 @@
 const {app, BrowserWindow, ipcMain} = require('electron');
+const isDev = require("electron-is-dev");
 const path = require('path');
 
 function createWindow () {
@@ -13,7 +14,9 @@ function createWindow () {
     })
   
     // and load the index.html of the app.
-    mainWindow.loadFile('index.html')
+    // mainWindow.loadFile('index.html')
+    const url = isDev ? "http://localhost:3000":'zanding'
+    mainWindow.loadURL(url);
   
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
