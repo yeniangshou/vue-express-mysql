@@ -1,4 +1,8 @@
-# 说明
+# 项目
+慕课上react-electron 搭建项目和完成项目;
+
+
+# 技术说明
  "dev": " "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \" cross-env  BROWSER=none npm start \" " \"wait-on http://localhost:3000 && electron .\" \" cross-env  BROWSER=none npm start \" "
 
 （1）\ \ 进行转义；
