@@ -1,15 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import FileSearch from './component/flieSearch'
 
 function App() {
   return (
     <div className="App container-fluid">
-        <div class="row">
-            <div class="col-3 bg-red left-panel">
-                <h1>左边</h1>
+        <div className="row">
+            <div className="col-4 bg-red left-panel">
+               <FileSearch tilte="文件搜索" onFileSearch={()=>{}}></FileSearch>
             </div>
-            <div class="col-9 bg-red right-panel">
+            <div className="col-8 bg-red right-panel">
                 <h1>右边内容</h1>
             </div>
         </div>
