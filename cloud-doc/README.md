@@ -10,6 +10,11 @@
 （3） wait-on && 代表 http://localhost:3000 启动这个之后，再启动electron .
 （4） cross-env 设置环境值，BROWSER=none 让react的浏览器不打开窗口;
 
+# react-fontawesome 使用
+https://www.jianshu.com/p/4322bf9b23bb
+
+
+
 
 # Getting Started with Create React App
 

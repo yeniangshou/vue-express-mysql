@@ -1,4 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
+// react-fontaweome 图标使用;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
+import './fileSearch.css'
+
 
 // 这里{ tilte, onFileSearch } 相当于vue中的prop接收;
 const FileSearch = ({ tilte, onFileSearch }) => {
@@ -53,31 +58,31 @@ const FileSearch = ({ tilte, onFileSearch }) => {
 					<span>{tilte}</span>
 					<button
 						type="button"
-						className="btn btn-primary"
+						className="icon-btn"
 						onClick={() => {
 							setInputActive(true)
 						}}
 					>
-						搜索
+						<FontAwesomeIcon icon={faSearch} />
 					</button>
 				</div>
 			)}
             {inputActive && (
-				<div className="row">
-                    <div className='col-7'>
+				<div  className="d-flex justify-content-between align-items-center">
+                    <div >
                         {/* value 和 onchange 相当于vue中 v-model； react 是要className*/}
 					    <input className='form-control ' ref={inputRef} value={value} onChange={(e)=>{ setValue(e.target.value) }}></input>
                     </div>
-                    <div className='col-5'>
+                    <div >
                         <button
                             type="button"
-                            className="btn btn-primary "
+                            className="icon-btn"
                             onClick={(event) => { 
                                 closeSearch(event);
                             }}
                             // 绑定method的方法
                         >
-                            关闭
+                            <FontAwesomeIcon icon={faTimes} size='1x' />
                         </button>
                     </div>
 				</div>
