@@ -8,8 +8,8 @@ function App() {
     <div className="App container-fluid">
         <div className="row">
             <div className="col-4 bg-red left-panel">
-                {/* tilte 相当于prop vue中  onFileSearch 传递也是*/}
-               <FileSearch tilte="文件搜索" onFileSearch={()=>{}}></FileSearch>
+                {/* tilte 相当于prop vue中  tilte="文件搜索"    onFileSearch 传递也是*/}
+               <FileSearch  onFileSearch={()=>{}}></FileSearch>
             </div>
             <div className="col-8 bg-red right-panel">
                 <h1>右边内容</h1>

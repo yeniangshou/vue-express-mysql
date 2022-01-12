@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 import './fileSearch.css'
+import PropTypes from 'prop-types';
 
 
 // 这里{ tilte, onFileSearch } 相当于vue中的prop接收;
@@ -91,5 +92,14 @@ const FileSearch = ({ tilte, onFileSearch }) => {
 	)
 }
 
+// 做类型检查
+FileSearch.propTypes = {
+    tilte: PropTypes.string,
+    onFileSearch: PropTypes.func.isRequired
+}
+
+FileSearch.defaultProps = {
+    tilte: '我的云文档'
+}
 
 export default FileSearch;

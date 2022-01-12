@@ -15,6 +15,9 @@ https://www.jianshu.com/p/4322bf9b23bb
 
 
 
+## prop-types  react 类型检查和设置默认值，类型prop;
+
+
 
 # Getting Started with Create React App
 
