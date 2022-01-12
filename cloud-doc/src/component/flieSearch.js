@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
+// 这里{ tilte, onFileSearch } 相当于vue中的prop接收;
 const FileSearch = ({ tilte, onFileSearch }) => {
+    // 这里相当于vue中data
 	const [inputActive, setInputActive] = useState(false)
 	const [value, setValue] = useState('')
 
@@ -24,6 +26,7 @@ const FileSearch = ({ tilte, onFileSearch }) => {
             {inputActive && (
 				<div className="row">
                     <div className='col-7'>
+                        {/* value 和 onchange 相当于vue中 v-model； react 是要className*/}
 					    <input className='form-control ' value={value} onChange={(e)=>{ setValue(e.target.value) }}></input>
                     </div>
                     <div className='col-5'>
