@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faMarkdown } from '@fortawesome/free-brands-svg-icons'
 import PropTypes from 'prop-types'
+import './fileList.css'
 
 const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
+
+
 	return (
 		<ul className="list-group list-group-flush ">
 			{files.map((file) => (
@@ -13,10 +16,13 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 					className="list-group-item d-flex justify-content-between align-items-center"
 					key={file.id}
 				>
-					<span>
-						<FontAwesomeIcon icon={faMarkdown} />
-						{file.title}
-					</span>
+                    <div>
+                        <FontAwesomeIcon icon={faMarkdown} />
+                        <span className='file-title'>
+                            {file.title}
+                        </span>
+                    </div>
+                    
 					<div>
 						<button type="button" className="icon-btn">
 							<FontAwesomeIcon icon={faEdit} />
@@ -29,6 +35,15 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 			))}
 		</ul>
 	)
+}
+
+// 做类型检查
+FileList.propTypes = {
+    files: PropTypes.array,
+}
+
+FileList.defaultProps = {
+    // tilte: '我的云文档'
 }
 
 export default FileList
