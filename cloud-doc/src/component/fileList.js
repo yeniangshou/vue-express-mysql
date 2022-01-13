@@ -11,9 +11,9 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 	const [inputActive, setInputActive] = useState(false);
 
     // 新增新字段判断是否显示输入框
-    files.forEach(item => item.inputActive = false);
+    let ary = files.map(item => {item.inputActive = false; return item;});
 
-    const [fileLists, setFiles] = useState(files) 
+    const [fileLists, setFiles] = useState(ary) 
 
     // 输入框数据绑定
     const setFileListValue = (value, id)=>{
@@ -24,26 +24,30 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
         });
         setFiles(fileLists);
     }
+    
 
     // 打开编辑
     const openEdit = (id)=>{
-        fileLists.forEach(item => {
+        let ary = fileLists.map(item => {
             if(item.id === id){
                item.inputActive = true;
             }
+            return item;
+            // temarr.push(item)
         });
-        setFiles(fileLists);
+        setFiles(temarr);
     }
 
     //关闭编辑
     const closeEdit = (title, id)=>{
-        fileLists.forEach(item => {
+        let ary = fileLists.map(item => {
             if(item.id === id){
                 item.title = title
                item.inputActive = false;
             }
+            return item;
         });
-        setFiles(fileLists);
+        setFiles(ary);
     }
 
     // 删除列表项
@@ -60,11 +64,12 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 		<ul className="list-group list-group-flush ">
 			{fileLists.map((file) => (
 				<li
-					className="list-group-item d-flex justify-content-between align-items-center"
+					className="list-group-item "
 					key={file.id}
 				>
-					{!inputActive && (
-						<div>
+                    <div>{file.inputActive}</div>
+					{!file.inputActive && (
+						<div  className='d-flex justify-content-between align-items-center'>
 							<div>
 								<FontAwesomeIcon icon={faMarkdown} />
 								<span className="file-title">{file.title}</span>
@@ -80,8 +85,8 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 							</div>
 						</div>
 					)}{
-                        inputActive &&
-                        <div>
+                        file.inputActive &&
+                        <div className='d-flex justify-content-between align-items-center'>
 							<div>
                                 <input className='form-control'  value={file.title} onChange={(e)=>{ setFileListValue(e.target.value, file.id) }}></input>
 							</div>
