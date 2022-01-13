@@ -9,10 +9,10 @@ import { hasSelectionSupport } from '@testing-library/user-event/dist/utils'
 
 const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 	const [inputActive, setInputActive] = useState(false);
+    const [status, setStatus ] = useState(false);
 
     // 新增新字段判断是否显示输入框
     let ary = files.map(item => {item.inputActive = false; return item;});
-
     const [fileLists, setFiles] = useState(ary) 
 
     // 输入框数据绑定
@@ -28,26 +28,12 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 
     // 打开编辑
     const openEdit = (id)=>{
-        let ary = fileLists.map(item => {
-            if(item.id === id){
-               item.inputActive = true;
-            }
-            return item;
-            // temarr.push(item)
-        });
-        setFiles(temarr);
+        setStatus(id);
     }
 
     //关闭编辑
-    const closeEdit = (title, id)=>{
-        let ary = fileLists.map(item => {
-            if(item.id === id){
-                item.title = title
-               item.inputActive = false;
-            }
-            return item;
-        });
-        setFiles(ary);
+    const closeEdit = (id)=>{
+        setStatus(false);
     }
 
     // 删除列表项
@@ -67,8 +53,7 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 					className="list-group-item "
 					key={file.id}
 				>
-                    <div>{file.inputActive}</div>
-					{!file.inputActive && (
+					{(status!=file.id) && (
 						<div  className='d-flex justify-content-between align-items-center'>
 							<div>
 								<FontAwesomeIcon icon={faMarkdown} />
@@ -85,7 +70,7 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 							</div>
 						</div>
 					)}{
-                        file.inputActive &&
+                        (status==file.id) &&
                         <div className='d-flex justify-content-between align-items-center'>
 							<div>
                                 <input className='form-control'  value={file.title} onChange={(e)=>{ setFileListValue(e.target.value, file.id) }}></input>
@@ -93,7 +78,7 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 
 							<div>
 								<button type="button" className="icon-btn">
-									<FontAwesomeIcon icon={faTimes} onClick={()=>{ closeEdit(file.title, file.id)  }}/>
+									<FontAwesomeIcon icon={faTimes} onClick={()=>{ closeEdit(file.id)  }}/>
 								</button>
 							</div>
 						</div>
