@@ -17,12 +17,13 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 
     // 输入框数据绑定
     const setFileListValue = (value, id)=>{
-        fileLists.forEach(item => {
+        let mm = fileLists.map(item => {
             if(item.id === id){
                item.title = value;
             }
+            return item
         });
-        setFiles(fileLists);
+        setFiles(mm);
     }
     
 
