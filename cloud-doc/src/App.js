@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import FileSearch from './component/flieSearch'
 import defaultFiles from './config/fileListConfig';
 import FileList from './component/fileList';
 import FileBtnList from './component/fileBtnlist'
+import TabList from './component/tabList'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
                <FileBtnList onAdd={()=>{}} onImport={()=>{}}></FileBtnList>
             </div>
             <div className="col-8 bg-red right-panel">
-                <h1>右边内容</h1>
+                <TabList files={defaultFiles} activedId="1" onTabClick={(id)=>{ console.log(id)} } ></TabList>
             </div>
         </div>
     </div>
