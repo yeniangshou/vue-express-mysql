@@ -11,7 +11,6 @@ const KeyUpDown = ({targetCode})=>{
     }
 
     const keyDownFun =({keycode}) =>{
-        debugger
         if(keycode === targetCode){
             setKeyStatus(false);
         }
