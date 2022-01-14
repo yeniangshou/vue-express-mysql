@@ -11,6 +11,12 @@ const defaultFiles = [
         body:'should be aware of this',
         createdAt: 15637629335704
     },
+    {
+        id:'3',
+        title:'second post',
+        body:'should be aware of this',
+        createdAt: 15637629335704
+    },
 ]
 
 export default defaultFiles
