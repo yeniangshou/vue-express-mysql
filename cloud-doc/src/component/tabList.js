@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import './tabList.css'
+import './tabList.scss'
 
 const TabList = ({ files, activedId, onSaveId, onTabClick, onCloseTab }) => {
 	const [saveId, setsaveId] = useState(false)
 
 	return (
-		<ul className="nav nav-pills">
+		<ul className="nav nav-pills tab-list">
 			{files.map((file) => (
 				<li className="nav-item" key={file.id}>
 					<a
