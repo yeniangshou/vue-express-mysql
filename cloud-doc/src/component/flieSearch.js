@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 import './fileSearch.css'
 import PropTypes from 'prop-types';
+// import KeyUpDown from './keyUpDown';
 
 
 // 这里{ tilte, onFileSearch } 相当于vue中的prop接收;
@@ -11,13 +12,15 @@ const FileSearch = ({ tilte, onFileSearch }) => {
     // 这里相当于vue中data
 	const [inputActive, setInputActive] = useState(false);
 	const [value, setValue] = useState('');
+    // const  enterKey = KeyUpDown(13);
+    // const  escKey = KeyUpDown(27);
     
     //dom节点
     const inputRef = useRef(null);
 
     // 相当于method的方法,需要声明
     const closeSearch = (e)=> {
-        e.preventDefault();
+        // e.preventDefault();
         setInputActive(false);
         setValue('');
     }
@@ -34,6 +37,16 @@ const FileSearch = ({ tilte, onFileSearch }) => {
             } else if(keyCode == 27 && inputActive){
                 closeSearch(event);
             }
+            
+            // 这里使用自定义hook有问题
+            // if(enterKey && inputActive){ 
+            //     console.log("搜索")
+            //     onFileSearch(value);
+               
+            // } else if(!escKey && inputActive){
+            //     console.log("关闭");
+            //     // closeSearch(event);
+            // }
         }
 
         document.addEventListener('keyup', handleInputEvent);
