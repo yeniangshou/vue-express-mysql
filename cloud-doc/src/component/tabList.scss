@@ -1,6 +1,19 @@
 .tab-list {
-    .mr10{
+    .mr10 {
         margin-right: 10px;;
     }
+
+    .close-icon {
+        visibility: hidden;
+    }
+
+    .nav-item:hover .close-icon {
+        visibility: visible;
+    }
+
+    .nav-item:hover .no-save-icon{
+        visibility: hidden;
+    }
+
 }
 

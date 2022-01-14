@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 // react-fontaweome 图标使用;
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faCircle } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './tabList.scss'
@@ -29,7 +29,22 @@ const TabList = ({ files, activedId, onSaveId, onTabClick, onCloseTab }) => {
 						>
 							{file.title}
 						</span>
-						<FontAwesomeIcon icon={faTimes} />
+						<span
+							className="close-icon"
+							onClick={(e) => {
+								onCloseTab(file.id)
+							}}
+						>
+							<FontAwesomeIcon icon={faTimes} />
+						</span>
+						<span
+							className="no-save-icon"
+							onClick={(e) => {
+								onTabClick(file.id)
+							}}
+						>
+							<FontAwesomeIcon icon={faCircle} />
+						</span>
 					</a>
 				</li>
 			))}
