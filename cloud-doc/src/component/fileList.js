@@ -9,7 +9,7 @@ import { hasSelectionSupport } from '@testing-library/user-event/dist/utils'
 
 const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 	const [inputActive, setInputActive] = useState(false);
-    const [status, setStatus ] = useState(false);
+    const [status, setStatus] = useState(false);
 
     // 新增新字段判断是否显示输入框
     let ary = files.map(item => {item.inputActive = false; return item;});

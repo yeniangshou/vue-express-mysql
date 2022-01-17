@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css'
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import FileSearch from './component/flieSearch'
 import defaultFiles from './config/fileListConfig'
@@ -11,6 +11,28 @@ import SimpleMDE from 'react-simplemde-editor'
 import "easymde/dist/easymde.min.css"
 
 function App() {
+    const [files, setFiles] = useState(defaultFiles);
+
+    // 新增文件
+    const AddFiles = () =>{
+        let item = {
+            id: files.length + 1,
+            title:'',
+            body:'create a file',
+            createdAt: 15637629335704
+        }
+        // 这样已经改变了地址才对，为什么还不行
+        const newdata = [...files];
+        newdata.push(item);
+        console.log('newdata', newdata)
+        setFiles(newdata);
+        console.log('files', files)
+    }
+
+    useEffect(()=>{
+        console.log('files', files)
+    },[files])
+
 	return (
 		<div className="App container-fluid">
 			<div className="row">
@@ -18,13 +40,14 @@ function App() {
 					{/* tilte 相当于prop vue中  tilte="文件搜索"    onFileSearch 传递也是*/}
 					<FileSearch onFileSearch={() => {}}></FileSearch>
 					<FileList
-						files={defaultFiles}
+						files={files}
 						onFileClick={() => {}}
 						onSaveEdit={() => {}}
 						onFileDelete={() => {}}
 					></FileList>
 					<FileBtnList
-						onAdd={() => {}}
+                        // 子组件调用这个，相当于vue的emit; 
+						onAdd={() => { AddFiles() }}
 						onImport={() => {}}
 					></FileBtnList>
 				</div>

@@ -17,6 +17,11 @@ https://www.jianshu.com/p/4322bf9b23bb
 
 ## prop-types  react 类型检查和设置默认值，类型prop;
 
+## 踩坑
+（1）这里useState 相当于,跟class的方式 替换 和  合并 
+（2）react hook 和 vue的对比
+vue里emit传给父组件， 而react-hook，直接当参数（函数和里面逻辑）传递进去子组件，子组件，然后再调用。
+   
 
 
 # Getting Started with Create React App
