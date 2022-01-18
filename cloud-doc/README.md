@@ -14,14 +14,22 @@
 https://www.jianshu.com/p/4322bf9b23bb
 
 
-
 ## prop-types  react 类型检查和设置默认值，类型prop;
+
+
+## electron_react 使用node.js中API fs 读取文件，创建文件fs.writeFile，删除文件fs.unlink，重命名fs.rename
+const  fs = require("fs").promises;   
+const path = require("path");
+const fileHelper = {
+    return fs.readFile(path, {encoding: 'uff-8'})
+}
+
 
 ## 踩坑
 （1）这里useState 相当于,跟class的方式 替换 和  合并 
 （2）react hook 和 vue的对比
 vue里emit传给父组件， 而react-hook，直接当参数（函数和里面逻辑）传递进去子组件，子组件，然后再调用。
-   
+（3） require("fs") 可能会有问题，使用window.require("fs") 
 
 
 # Getting Started with Create React App
