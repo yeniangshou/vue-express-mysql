@@ -7,6 +7,17 @@ import PropTypes from 'prop-types'
 import './fileList.css'
 import { hasSelectionSupport } from '@testing-library/user-event/dist/utils'
 
+// 本地存储
+const Store = window.require("electron-store")
+const store = new Store();
+store.set("name", "huangbo");
+let value = store.get("name")
+console.log("value", value)
+store.delete("name");
+ value = store.get("name")
+console.log("value", value)
+
+
 const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 	const [inputActive, setInputActive] = useState(false);
     const [status, setStatus] = useState(false);

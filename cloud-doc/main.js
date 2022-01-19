@@ -2,6 +2,7 @@ const {app, BrowserWindow, ipcMain} = require('electron');
 const isDev = require("electron-is-dev"); // 判定是否开发环境;
 const path = require('path');
 
+
 function createWindow () {
     // Create the browser window.
     const mainWindow = new BrowserWindow({

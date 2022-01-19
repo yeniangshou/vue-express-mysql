@@ -23,7 +23,29 @@ const path = require("path");
 const fileHelper = {
     return fs.readFile(path, {encoding: 'uff-8'})
 }
+path 这里path，需要electron API 的remote得到
 
+## electron-store 的使用 和vuex 的区别
+1：vuex存储在内存，localstorage则以文件的方式存储在本地，electron-store数据存储卸载应用之后依然存在。
+2：应用场景：vuex用于组件之间的传值，localstorage则主要用于不同页面之间的传值。
+3：永久性：当刷新页面时vuex存储的值会丢失，localstorage不会。
+
+4： 为什么不使用window.localStorage
+localStorage仅在浏览器进程（渲染进程）中起作用。
+localStorage的容错性不是很高，因此，如果您的应用遇到错误并意外退出，则可能会丢失数据。
+localStorage仅支持持久字符串。 此模块支持任何JSON支持的类型。
+localStorage不是很安全，可能是由于xss攻击而泄漏信息。
+electron-store模块的API更好。 您可以设置并获取嵌套属性。 您可以设置默认的初始配置
+
+npm install electron-store
+const Store = window.require("electron-store") // window 不同情况可以去掉;
+const store = new Store();
+store.set("name", "huangbo");
+let value = store.get("name")
+console.log("value", value)
+store.delete("name");
+value = store.get("name")
+console.log("value", value)
 
 ## 踩坑
 （1）这里useState 相当于,跟class的方式 替换 和  合并 
