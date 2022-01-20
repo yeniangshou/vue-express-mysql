@@ -53,6 +53,8 @@ console.log("value", value)
 vue里emit传给父组件， 而react-hook，直接当参数（函数和里面逻辑）传递进去子组件，子组件，然后再调用。
 （3） require("fs") 可能会有问题，使用window.require("fs") 
 
+## 问题
+1: electron 版本问题影响系统升级更新和remote 导入文件对话框dialog，造成remote underfined 暂时没解决;
 
 # Getting Started with Create React App
 
