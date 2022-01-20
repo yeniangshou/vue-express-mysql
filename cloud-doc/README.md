@@ -17,7 +17,7 @@ https://www.jianshu.com/p/4322bf9b23bb
 ## prop-types  react 类型检查和设置默认值，类型prop;
 
 
-## electron_react 使用node.js中API fs 读取文件，创建文件fs.writeFile，删除文件fs.unlink，重命名fs.rename
+## 文件读取 electron_react 使用node.js中API fs 读取文件，创建文件fs.writeFile，删除文件fs.unlink，重命名fs.rename
 const  fs = require("fs").promises;   
 const path = require("path");
 const fileHelper = {
@@ -46,6 +46,11 @@ console.log("value", value)
 store.delete("name");
 value = store.get("name")
 console.log("value", value)
+
+## 文件弹窗  remote  dialog 
+
+## 右键菜单  remote  menu
+
 
 ## 踩坑
 （1）这里useState 相当于,跟class的方式 替换 和  合并 
