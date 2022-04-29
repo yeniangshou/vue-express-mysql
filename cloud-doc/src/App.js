@@ -13,23 +13,24 @@ import menu from './component/menu'
 
 function App() {
 	const [files, setFiles] = useState(defaultFiles)
-	const menu = menu([
-		{
-			lable: '新建',
-			click: () => {
-				console.log('新建')
-			},
-		},
-		{
-			lable: '删除',
-			click: () => {
-				console.log('删除')
-			},
-		},
-	])
+	// const menu = menu([
+	// 	{
+	// 		lable: '新建',
+	// 		click: () => {
+	// 			console.log('新建')
+	// 		},
+	// 	},
+	// 	{
+	// 		lable: '删除',
+	// 		click: () => {
+	// 			console.log('删除')
+	// 		},
+	// 	},
+	// ])
 
 	// 新增文件
-	const AddFiles = () => {
+	
+    const AddFiles = () => {
 		let item = {
 			id: files.length + 1,
 			title: '',

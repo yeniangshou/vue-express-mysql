@@ -24,3 +24,5 @@ const UseMenu = (itemArr) => {
 	}, []);
     return el;
 }
+
+export default UseMenu
