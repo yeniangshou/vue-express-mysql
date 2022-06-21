@@ -29,3 +29,15 @@ react、ts、node、react-router-dom、antd-desgin
 功能：登录页面； 列表页面、查询和重置、新增、编辑、删除
 yarn start 启动
 以mykoa2的后端作为服务端，mysql作为数据库，建立userlogin表，账号和密码。
+
+commonComponet
+commponent 文件夹是我在后台管理系统上常用的业务组件
+表单组件
+表格分页组件
+富文本组件
+图片上传组件
+文件上传组件
+导出-查看下载组件
+mixins    是后台管理系统抽取的公共逻辑
+常用指令  https://segmentfault.com/a/1190000038475001
+
